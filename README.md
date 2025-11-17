@@ -104,10 +104,6 @@ docker compose down
 
 POST http://localhost:8001/clients
 
-
-Body JSON:
-
-```json
 {
   "name": "Daniela",
   "email": "daniela@example.com",
