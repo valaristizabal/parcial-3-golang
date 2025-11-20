@@ -1,14 +1,15 @@
-name: CI - CRUD Clients
+name: CI - CRUD Golang
 
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
+
   test:
     name: Run Go tests
     runs-on: ubuntu-latest
@@ -41,6 +42,7 @@ jobs:
         run: |
           cd delete
           go test ./...
+
   build-images:
     name: Build Docker images
     runs-on: ubuntu-latest
@@ -109,7 +111,7 @@ jobs:
 
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME_PREFIX: ghcr.io/valaristizabal/parcial-3-golang
+      IMAGE_NAME_PREFIX: ghcr.io/marianaosoriohernandez/parcial-3-golang
 
     steps:
       - name: Checkout code
@@ -153,4 +155,3 @@ jobs:
           file: ./delete/Dockerfile
           push: true
           tags: ${{ env.IMAGE_NAME_PREFIX }}-delete:latest
-  
